@@ -1,35 +1,25 @@
 <body>
     <h1>Voter Form</h1>
     <form method="POST" action="process_form.py">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name"><br><br>
-      <label for="age">Age:</label>
-      <input type="number" id="age" name="age"><br><br>
+        <!-- First and last name -->
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName"><br><br>
+        </div>
 
-      <label for="gender">Gender:</label>
-      <select id="gender" name="gender">
-        <option value="">--Select--</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select><br><br>
 
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city"><br><br>
+      <!-- Wisc email and Birthdate -->   
+      <div>
+        <label for="wisc">Wisc Email:</label>
+        <input type="text" id="wisc" name="wisc">
+        <label for="birthdate">Birth Date:</label>
+        <input type="text" id="birthdate" name="birthdate" placeholder="MM/DD/YYYY"><br><br>
+      </div>
 
-      <fieldset>
-        <legend>Candidates:</legend>
-        <input type="checkbox" id="candidate1" name="candidates" value="candidate1">
-        <label for="candidate1">Candidate 1</label><br>
-
-        <input type="checkbox" id="candidate2" name="candidates" value="candidate2">
-        <label for="candidate2">Candidate 2</label><br>
-
-        <input type="checkbox" id="candidate3" name="candidates" value="candidate3">
-        <label for="candidate3">Candidate 3</label><br>
-      </fieldset><br>
-
-      <a href="home.html" class="button">Go to next page</a>
+      <a href="home.html" class="button">Submit</a>
+      
     </form>
   </body>
 </html>
