@@ -1,24 +1,103 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-	<title>Voting Platform</title>
+    <title>MadVoting</title>
+    <style>
+        body {
+            background-color: mistyrose;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(43, 43, 43);
+            font-family: Verdana;
+        }
+
+         .logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+    </style>
 </head>
 <body>
-	<h1>Vote for your favorite candidate</h1>
-	<form action="submit-vote.php" method="POST">
-		<label>
-			<input type="radio" name="candidate" value="John Smith">
-			John Smith
-		</label><br>
-		<label>
-			<input type="radio" name="candidate" value="Jane Doe">
-			Jane Doe
-		</label><br>
-		<label>
-			<input type="radio" name="candidate" value="Bob Johnson">
-			Bob Johnson
-		</label><br>
-		<input type="submit" value="Submit Vote">
-	</form>
+
+    <h1>MadVoting</h1>
+    <img src="WisconsinLogo.jpeg" alt="MadVoting logo" class="logo">
+    <p>Welcome to MadVoting, where you can vote for the best candidates to fill important roles in our club!</p>
+    <h2>Club Roles</h2>
+    <ul>
+        <li>President</li>
+
+        <li>Vice President</li>
+
+        <li>Treasurer</li>
+
+        <li>Secretary</li>
+
+        <li>Public Relations Officer</li>
+
+        <li>Events Coordinator</li>
+
+    </ul>
+
+ 
+
+    <h2>Candidates</h2>
+
+    <form action="vote.php" method="post">
+        <p>President:</p>
+        <select name="president">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+        </select>
+
+         <p>Vice President:</p>
+        <select name="vice_president">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+
+        </select>
+
+        <p>Treasurer:</p>
+        <select name="treasurer">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+        </select>
+
+        <p>Secretary:</p>
+        <select name="secretary">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+        </select>
+
+ 
+        <p>Public Relations Officer:</p>
+        <select name="pro">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+        </select>
+
+ 
+
+        <p>Events Coordinator:</p>
+        <select name="events">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <option value="candidate3">Candidate 3</option>
+        </select>
+ 
+
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
+
