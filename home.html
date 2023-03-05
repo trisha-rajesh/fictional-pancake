@@ -58,7 +58,7 @@
 
     <h2>Candidates</h2>
 
-    <form action="vote.php" method="post">
+    <form>
         <p>President:</p>
         <select name="president">
             <option value="candidate1">Candidate 1</option>
@@ -104,67 +104,29 @@
             <option value="candidate2">Candidate 2</option>
             <option value="candidate3">Candidate 3</option>
         </select>
- 
 
-        <br><br>
-        <a href="submit.html" class="button">Submit</a>
+        <div class="formBox">
+            <button id="btn">Submit</button>
+        </div>
+        <div id="msg">
+            <pre></pre>
+        </div>
+        <a href="submit.html" class="button">Next</a>
     </form>
+    <script>
+        const getData = (ev)=>{
+            let candidateData = localStorage.getItem('MyUserData');
+            // candidateData = JSON.parse(candidateData);
+
+            //for display purposes only
+            console.warn('added' , {data} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(data, '\t', 2);
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', getData);
+        });
+    </script>
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-    <form action="vote.php" method="post">-->
-<!--        <p>President:</p>-->
-<!--        <select name="president">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <p>Vice President:</p>-->
-<!--        <select name="vice_president">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <p>Treasurer:</p>-->
-<!--        <select name="treasurer">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <p>Secretary:</p>-->
-<!--        <select name="secretary">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <p>Public Relations Officer:</p>-->
-<!--        <select name="public_relations_officer">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <p>Events Coordinator:</p>-->
-<!--        <select name="events_coordinator">-->
-<!--            <% for (CandidateProfile profile : CandidateProfileController.profiles) { %>-->
-<!--            <option value="<%= profile.getName() %>"><%= profile.getName() %></option>-->
-<!--            <% } %>-->
-<!--        </select>-->
-
-<!--        <input type="submit" value="Vote">-->
-<!--    </form>-->
-
-<!--</body>-->
-<!--</html>
