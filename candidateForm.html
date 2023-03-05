@@ -1,27 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Candidate Profile</title>
-	<style>
-		/* styles omitted for brevity */
+    <title>Candidate Profile</title>
+    <style>
+		body {
+			margin: 0;
+			padding: 20px;
+			background: linen;
+			font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
+		}
+
+		h1 {
+			margin-top: 50px;
+			font-size: 36px;
+			text-align: center;
+			color: darkred;
+		}
+
+		label {
+			color: black;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		input[type="text"], textarea, input[type="file"], select[name="roles"] {
+			font-size: 18px;
+			padding: 8px;
+			border-radius: 4px;
+			border: 1px darkred;
+			background-color: white;
+			margin-bottom: 20px;
+			width: 25%;
+		}
+
+		input[type="submit"] {
+			font-size: 18px;
+			padding: 8px 16px;
+			border: 1px solid white;
+			border-radius: 4px;
+			background-color: darkred;
+			color: linen;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: linen;
+			color: darkred;
+		}
+
 	</style>
 </head>
 <body>
 <h1>Create Profile</h1>
 <form action="/submitProfile" method="post" enctype="multipart/form-data">
-	<label for="name">Name:</label>
-	<input type="text" id="name" name="name" required><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
 
-	<label for="bio">Bio:</label>
-	<textarea id="bio" name="bio" rows="5" cols="30" required></textarea><br>
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" rows="5" cols="30" required></textarea><br>
 
-	<label for="slogan">Slogan:</label>
-	<input type="text" id="slogan" name="slogan" required><br>
+    <label for="slogan">Slogan:</label>
+    <input type="text" id="slogan" name="slogan" required><br>
 
-	<label for="picture">Picture:</label>
-	<input type="file" id="picture" name="picture" accept="image/*" required><br>
+    <label for="picture">Picture:</label>
+    <input type="file" id="picture" name="picture" accept="image/*" required><br>
 
-	<input type="submit" value="Submit">
+    <label for="roles">Roles:</label>
+    <select name="roles">
+        <option value="" selected>Choose a role</option>
+        <option value="President">President</option>
+        <option value="Vice President">Vice President</option>
+        <option value="Treasurer">Treasurer</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Public Relations Officer">Public Relations Officer</option>
+    </select>
+    <p></p>
+
+    <a href="submit.html" class="button">Submit</a>
 </form>
 </body>
 </html>
