@@ -4,27 +4,52 @@
 <head>
     <title>Voter Form</title>
     <style>
-        body {
-            background: linen;
-           
-        }
-        h1 {
-            text-align: center;
-            color: darkred;
-            font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial
-        }
-        li {
-            font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial
-        }
-        p{
-            font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial
-        }
-        h2 {
-            color: darkred;
-            font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial
-        }
+		body {
+			margin: 0;
+			padding: 20px;
+			background: linen;
+			font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
+		}
 
-         .logo {
+		h1 {
+			margin-top: 50px;
+			font-size: 36px;
+			text-align: center;
+			color: darkred;
+		}
+
+		label {
+			color: black;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		input[type="text"], textarea, input[type="file"], select[name="roles"] {
+			font-size: 18px;
+			padding: 8px;
+			border-radius: 4px;
+			border: 1px darkred;
+			background-color: white;
+			margin-bottom: 20px;
+			width: 25%;
+		}
+
+		input[type="submit"] {
+			font-size: 18px;
+			padding: 8px 16px;
+			border: 1px solid white;
+			border-radius: 4px;
+			background-color: darkred;
+			color: linen;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: linen;
+			color: darkred;
+		}
+
+		.logo {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -34,29 +59,59 @@
     </style>
 </head>
 <body>
-
     <h1>Voter Form</h1>
     <img src="images/b&wUWlogo.png" alt="UW logo" class="logo">
-    <form method="POST" action="process_form.py">
-        <!-- First and last name -->
-        <div>
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName"><br><br>
+    <form>
+        <div class="formBox">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName"/>
         </div>
-
-
-      <!-- Wisc email and Birthdate -->   
-      <div>
-        <label for="wisc">Wisc Email:</label>
-        <input type="text" id="wisc" name="wisc">
-        <label for="birthdate">Birth Date:</label>
-        <input type="text" id="birthdate" name="birthdate" placeholder="MM/DD/YYYY"><br><br>
-      </div>
-
-      <a href="home.html" class="button">Submit</a>
-      
+        <div class="formBox">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName"/>
+        </div>
+        <div class="formBox">
+            <label for="wiscEmail">Wisc Email</label>
+            <input type="text" id="wiscEmail" placeholder="@wisc.edu"/>
+        </div>
+        <div class="formBox">
+            <label for="birthdate">Year</label>
+            <input type="text" id="birthdate" placeholder="MM/DD/YYYY"/>
+        </div>
+        <div class="formBox">
+            <button id="btn">Submit</button>
+        </div>
+        <div id="msg">
+            <pre></pre>
+        </div>
+        <a href="home.html" class="button">Next</a>
     </form>
+    <script>
+        let userData = [];
+        // example {id:1592304983049, title: 'Deadpool', year: 2015}
+        const addData = (ev)=>{
+            ev.preventDefault();  //to stop the form submitting
+            let data = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('firstName').value,
+                wiscEmail: document.getElementById('wiscEmail').value,
+                birthdate: document.getElementById('birthdate').value
+            }
+            userData.push(data);
+            document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {data} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(data, '\t', 2);
+
+            //saving to localStorage
+            localStorage.setItem('MyUserData', JSON.stringify(userData) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btn').addEventListener('click', addData);
+        });
+    </script>
   </body>
 </html>
