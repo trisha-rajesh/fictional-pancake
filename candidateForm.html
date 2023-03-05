@@ -1,83 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Candidate Profile</title>
-    <style>
+	<title>Candidate Profile</title>
+	<style>
 		body {
 			margin: 0;
 			padding: 20px;
 			background: linen;
 			font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
 		}
-
+		
 		h1 {
-			margin-top: 50px;
-			font-size: 36px;
+			margin-top: 40px;
+			font-size: 46px;
 			text-align: center;
 			color: darkred;
 		}
-
+		
 		label {
 			color: black;
-			font-size: 18px;
+			font-size: 24px;
 			line-height: 1.5;
 		}
-
-		input[type="text"], textarea, input[type="file"], select[name="roles"] {
-			font-size: 18px;
-			padding: 8px;
-			border-radius: 4px;
-			border: 1px darkred;
-			background-color: white;
-			margin-bottom: 20px;
-			width: 25%;
-		}
-
+		
 		input[type="submit"] {
-			font-size: 18px;
+			font-size: 20px;
 			padding: 8px 16px;
-			border: 1px solid white;
-			border-radius: 4px;
-			background-color: darkred;
-			color: linen;
+			border: 1px solid black;
+			text-decoration: none;
 			cursor: pointer;
+			border-radius: 5px;
+			font-family: Arial;
 		}
-
+		
+		.submitButton {
+   	  	    font-size: 20px;
+   	    	padding: 8px 16px;
+    	    text-decoration: none;
+  		    font-family: Arial;
+  		    width: 65px;
+   		    display: flex;
+   		    justify-content: center;
+    		align-items: center;
+        }
+		
 		input[type="submit"]:hover {
-			background-color: linen;
-			color: darkred;
+			color: red;
 		}
 
+        input[type="text"], textarea, input[type="file"] {
+			font-size: 20px;
+			padding: 16px;
+			border-width: 1px;
+    		border-style: solid;
+			border-radius: 5px;
+			border-color: black;
+			background-color: white;
+			margin-left: 16px;
+			margin-bottom: 20px;
+            margin-right: 16px;
+			text-align: justify;
+		}
+        .buttonText{
+            text-decoration: none;
+        }
+
+		
 	</style>
 </head>
 <body>
-<h1>Create Profile</h1>
-<form action="/submitProfile" method="post" enctype="multipart/form-data">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="bio">Bio:</label>
-    <textarea id="bio" name="bio" rows="5" cols="30" required></textarea><br>
-
-    <label for="slogan">Slogan:</label>
-    <input type="text" id="slogan" name="slogan" required><br>
-
-    <label for="picture">Picture:</label>
-    <input type="file" id="picture" name="picture" accept="image/*" required><br>
-
-    <label for="roles">Roles:</label>
-    <select name="roles">
-        <option value="" selected>Choose a role</option>
-        <option value="President">President</option>
-        <option value="Vice President">Vice President</option>
-        <option value="Treasurer">Treasurer</option>
-        <option value="Secretary">Secretary</option>
-        <option value="Public Relations Officer">Public Relations Officer</option>
-    </select>
-    <p></p>
-
-    <a href="submit.html" class="button">Submit</a>
-</form>
+	<h1>Create Profile</h1>
+	<form action="profile.php" method="post" enctype="multipart/form-data">
+		<label for="name ">Name:</label>
+		<input type="text" id="name" name="name" required><br>
+		
+		<label for="bio">Bio:</label>
+		<textarea id="bio" name="bio" rows="5" cols="30" required></textarea><br>
+		
+		<label for="slogan">Slogan:</label>
+		<input type="text" id="slogan" name="slogan" required><br>
+		
+		<label for="picture">Picture:</label>
+		<input type="file" id="picture" name="picture" accept="image/*" required><br>
+		
+		<div class="submitButton">
+			<input type="submit" value="Submit">
+		  </div>
+	</form>
 </body>
 </html>
-
