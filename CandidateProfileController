@@ -1,6 +1,5 @@
 //
 // Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
 //
 
 import com.sun.net.httpserver.HttpExchange;
@@ -34,7 +33,8 @@ public class CandidateProfileController {
 
     public static List<CandidateProfile> readProfilesFromFile(String filePath) throws IOException {
         List<CandidateProfile> profiles = new ArrayList<>();
-        File file = new File(filePath);
+        File file =
+                new File("/Users/aamukthakottapalli/IdeaProjects/OnlineBallot/mad-voting/out/production/mad-voting/candidates.txt");
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -70,6 +70,8 @@ public class CandidateProfileController {
     static class SubmitProfileHandler implements HttpHandler {
         SubmitProfileHandler() {
         }
+
+        //post request from html to candidate profile controller
 
         public void handle(HttpExchange exchange) throws IOException {
             if ("POST".equals(exchange.getRequestMethod())) {
