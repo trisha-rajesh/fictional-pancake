@@ -1,0 +1,25 @@
+// function handleRequest(request) {
+//      request.queryParamaeters.get('name')
+// }
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+@Controller
+public class CandidateProfileController {
+
+    @PostMapping("/submitProfile")
+    public String handleFormSubmission(@RequestParam("name") String name,
+                                       @RequestParam("bio") String bio,
+                                       @RequestParam("slogan") String slogan,
+                                       @RequestParam("picture") MultipartFile picture) {
+        // Process the form data here, for example by saving it to a database or sending it to another service.
+        // You can access the form data using the parameters annotated with @RequestParam.
+        // In this example, the "picture" parameter is of type MultipartFile, which is a Spring type that represents a file uploaded via a form.
+        // You can use the methods of this object to access the contents of the uploaded file.
+
+        return "success.html"; // Redirect to a success page
+    }
+}
