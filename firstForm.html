@@ -10,36 +10,73 @@
         text-align: center;
         color: darkred;
         font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
+        font-size: 50px;
       }
       h2 {
+        text-align: center;
         color: darkred;
         font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
+        font-size: 35px;
       }
       li {
+        text-align: center;
         font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
       }
       p {
+        text-align: center;
         font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
       }
       .logo {
         position: absolute;
-        bottom: 0;
+        top: 0;
         right: 0;
-        padding: 1px;
+        padding: 10px;
+      }
+      .container{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      .button {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        justify-content: center;
+        background-color: white;
+        padding: 15px 32px;
+        text-align: center;
+        display: flex;
+        text-decoration: none;
+        color: black;
+        font-size: 35px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: Outfit,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial;
+      }
+      .mainCol {
+        justify-content: center;
+        align-content: center;
       }
     </style>
   </head>
   <body>
-    <h1>Voter Form</h1>
-    <img src="images/b&wUWlogo.png" alt="UW logo" class="logo">
-    <h2>Welcome to the MadVoting Form</h2>
+    <h1>Welcome to the MadVoting Form</h1>
     <form method="POST" action="process_form.py">
       <div>
-        <p>Click below if you are a</p>
+        <h2>Click below if you are a</h2>
       </div>
-      <a href="candidateForm.html" class="button">Candidate</a>
-      <p>Or A</p>
-      <a href="voterForm.html" class="button">Voter</a>
+      <div class = "container">
+        <div class = "column mainCol">
+          <div class = "row">
+           <a href="candidateForm.html" class="button">Candidate</a>
+          </div>
+          <div class = "row">
+           <h2>Or A</h2>
+          </div>
+          <div class = "row">
+         <a href="voterForm.html" class="button">Voter</a>
+         </div>
+      </div>
     </form>
   </body>
 </html>
