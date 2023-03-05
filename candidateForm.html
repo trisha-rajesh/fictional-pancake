@@ -60,32 +60,77 @@
 <body>
 <h1>Create Profile</h1>
 <img src="images/b&wUWlogo.png" alt="UW logo" class="logo">
-<form action="/submitProfile" method="post" enctype="multipart/form-data">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="bio">Bio:</label>
-    <textarea id="bio" name="bio" rows="5" cols="30" required></textarea><br>
-
-    <label for="slogan">Slogan:</label>
-    <input type="text" id="slogan" name="slogan" required><br>
-
-    <label for="picture">Picture:</label>
-    <input type="file" id="picture" name="picture" accept="image/*" required><br>
-
-    <label for="roles">Roles:</label>
-    <select name="roles">
-        <option value="" selected>Choose a role</option>
-        <option value="President">President</option>
-        <option value="Vice President">Vice President</option>
-        <option value="Treasurer">Treasurer</option>
-        <option value="Secretary">Secretary</option>
-        <option value="Public Relations Officer">Public Relations Officer</option>
-    </select>
-    <p></p>
-
-    <a href="submit.html" class="button">Submit</a>
+<form>
+	<div class="formBox">
+		<label for="name">Name</label>
+		<input type="text" id="name"/>
+	</div>
+	<div class="formBox">
+		<label for="bio">Bio</label>
+		<input type="text" id="bio" placeholder=""/>
+	</div>
+	<div class="formBox">
+		<label for="slogan">Slogan</label>
+		<input type="text" id="slogan"/>
+	</div>
+	<div>
+		<h4>Club Roles</h4>
+		<ul>
+			<li>President</li>
+			<li>Vice President</li>
+			<li>Treasurer</li>
+			<li>Secretary</li>
+			<li>Public Relations Officer</li>
+			<li>Events Coordinator</li>
+		</ul>
+	</div>
+	<div class="formBox">
+		<label for="role">Role</label>
+		<input type="text" id="role"/>
+	</div>
+	<div class="formBox">
+		<label for="picture">Picture</label>
+		<input type="file" id="picture"/>
+	</div>
+	<div class="formBox">
+		<button id="btn">Submit</button>
+	</div>
+	<div id="msg">
+		<pre></pre>
+	</div>
+	<a href="home.html" class="button">Next</a>
 </form>
+	<script>
+		// get existing userData
+		let userData = [] 
+		userData = JSON.parse(localStorage.getItem('MyUserData'));
+		// example {id:1592304983049, title: 'Deadpool', year: 2015}
+		const addData = (ev)=>{
+			ev.preventDefault();  //to stop the form submitting
+			let data = [{
+				name: document.getElementById('name').value,
+				bio: document.getElementById('bio').value,
+				slogan: document.getElementById('slogan').value,
+				role: document.getElementById('role').value,
+				picture: document.getElementById('picture').value
+			}]
+			userData.push(data);
+			document.forms[0].reset(); // to clear the form for the next entries
+			//document.querySelector('form').reset();
+
+			//for display purposes only
+			console.warn('added' , {data} );
+			let pre = document.querySelector('#msg pre');
+			pre.textContent = '\n' + JSON.stringify(data, '\t', 2);
+
+			//saving to localStorage
+			localStorage.setItem('MyUserData', JSON.stringify(userData) );
+		}
+		document.addEventListener('DOMContentLoaded', ()=>{
+			document.getElementById('btn').addEventListener('click', addData);
+		});
+	</script>
 </body>
 </html>
+
 
